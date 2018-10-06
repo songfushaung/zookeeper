@@ -37,7 +37,7 @@ public  class ZookeeperLock implements SelfLock {
 		public boolean tryLock() {
 			try {
 				zkClient.createEphemeral(PATH);
-				//false试一试
+				//false试一试a
 				return true;
 			} catch (Exception e) {
 				//创建相同的临时节点 如果临时节点存在 就是失败 只能等待
