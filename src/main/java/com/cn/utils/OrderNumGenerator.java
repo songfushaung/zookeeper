@@ -20,4 +20,9 @@ public class OrderNumGenerator {
 		return simpt.format(new Date()) + "-" + ++count;
 
 	}
+	public static void main(String[] args) {
+		 long totalMilliSeconds = System.currentTimeMillis();
+	      long totalSeconds = totalMilliSeconds / 1000;
+		System.out.println(totalSeconds);
+	}
 }

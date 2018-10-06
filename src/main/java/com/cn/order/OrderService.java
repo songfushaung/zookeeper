@@ -39,7 +39,7 @@ public class OrderService implements Runnable{
 	 */
 	public static void main(String[] args) {
 		OrderService order=new OrderService();
-		for(int i=0;i<10;i++){
+		for(int i=0;i<1;i++){
 			new Thread(new OrderService()).start();
 		}
 	}

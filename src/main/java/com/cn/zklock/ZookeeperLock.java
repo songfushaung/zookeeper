@@ -22,6 +22,7 @@ public  class ZookeeperLock implements SelfLock {
 			if (tryLock()) {
 				System.out.println("###获取锁成功#####");
 			} else {
+				//创建相同的临时节点 如果临时节点存在 就等待
 				// 等待
 				waitLock();
 				// 重新获取锁
@@ -36,8 +37,10 @@ public  class ZookeeperLock implements SelfLock {
 		public boolean tryLock() {
 			try {
 				zkClient.createEphemeral(PATH);
+				//false试一试
 				return true;
 			} catch (Exception e) {
+				//创建相同的临时节点 如果临时节点存在 就是失败 只能等待
 				return false;
 			}
 		}
@@ -76,7 +79,7 @@ public  class ZookeeperLock implements SelfLock {
 				}
 
 			}
-			// 删除事件通知
+			// 删除事件监听
 			zkClient.unsubscribeDataChanges(PATH, iZkDataListener);
 		}
 
