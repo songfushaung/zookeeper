@@ -66,7 +66,7 @@ public  class ZookeeperLock implements SelfLock {
 				}
 			};
 
-			// 注册节点信息
+			// 监听节点信息
 			zkClient.subscribeDataChanges(PATH, iZkDataListener);
 			if (zkClient.exists(PATH)) {
 				// 创建信号量
